@@ -2,10 +2,12 @@
   $.distSq = function (b) {
     return this.reduce((p,c,i) => p + Math.pow((this[i]-b[i]),2), 0)
   }
+  $.dist = function (b) { return Math.sqrt(this.distSq(b)) }
 
   $.magSq = function () {
     return this.reduce((p,c) => p + (c*c), 0)
   }
+  $.mag = function () { return Math.sqrt(this.magSq()) }
 
   $.add = function(b) { return this.map((c,i,a) => a[i] + b[i]) }
   $.sub = function(b) { return this.map((c,i,a) => a[i] - b[i]) }
@@ -22,14 +24,6 @@
   'abs ceil floor max min round'.split(' ').forEach((f,i) => {
     $[f] = function(p) {
       return this.map((v) => v = Math[f](v,p))
-    }
-  })
-
-  Object.keys($).forEach((f) => {
-    if (f.endsWith('Sq')) {
-      $[f.slice(0, -2)] = function (b) {
-        return Math.sqrt(this[f](b))
-      }
     }
   })
 })(Array.prototype)
