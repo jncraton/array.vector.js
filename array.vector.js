@@ -11,10 +11,10 @@ Array.prototype.sub = function(b) { return this.map((cur,i) => this[i] - b[i]) }
 Array.prototype.mul = function(b) { return this.map((cur,i) => this[i] * b) }
 Array.prototype.div = function(b) { return this.map((cur,i) => this[i] / b) }
 
-;['x','y','z'].forEach((dim,i) => {
+;['z','y','x','w'].forEach((dim,i) => {
   Array.prototype[dim] = function(val) {
-    if (val) this[i] = val
-    return this[i]
+    if (val) this[[this.length - 1 - i]] = val
+    return this[[this.length - 1 - i]]
   }
 })
 
