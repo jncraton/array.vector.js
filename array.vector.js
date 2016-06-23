@@ -4,8 +4,10 @@ Array.prototype.distanceSq = function (b) {
   }, 0)
 }
 
-Array.prototype.lengthSq = function (b) {
+Array.prototype.magnitudeSq = function (b) {
   return this.reduce((prev,cur) => {
     return prev + (cur*cur)
   }, 0)
 }
+
+Array.prototype.magnitude = function () { return Math.sqrt(this.magnitudeSq()) }

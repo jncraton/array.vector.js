@@ -11,11 +11,13 @@ tests = [
   ['distanceSq',[0,0,0],[[0,0,1]],1],
   ['distanceSq',[0,0,0],[[1,1,1]],3],
   ['distanceSq',[0,0,0],[[-1,-1,-1]],3],
-  ['lengthSq',[0,0],[],0],
-  ['lengthSq',[1,1],[],2],
-  ['lengthSq',[-1,-1],[],2],
-  ['lengthSq',[-1,-1,-1],[],3],
-  ['lengthSq',[-1,-1,-1,-1],[],4],
+  ['magnitudeSq',[0,0],[],0],
+  ['magnitudeSq',[1,1],[],2],
+  ['magnitudeSq',[-1,-1],[],2],
+  ['magnitudeSq',[-1,-1,-1],[],3],
+  ['magnitudeSq',[-1,-1,-1,-1],[],4],
+  ['magnitude',[-1,-1,-1,-1],[],2],
+  ['magnitude',[-1,0],[],1],
 ]
 
 failures = 0
