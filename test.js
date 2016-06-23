@@ -20,6 +20,10 @@ tests = [
   ['magSq',[-1,-1,-1,-1],[],4],
   ['mag',[-1,-1,-1,-1],[],2],
   ['mag',[-1,0],[],1],
+  ['add',[1,1],[[0,0]],[1,1]],
+  ['add',[0,0],[[1,1]],[1,1]],
+  ['add',[0,0],[[-1,-1]],[-1,-1]],
+  ['add',[0,0],[[-1,0]],[-1,0]],
 ]
 
 failures = 0
@@ -27,7 +31,7 @@ failures = 0
 tests.forEach(function (test, i) {
   var result = test[1][test[0]].apply(test[1], test[2])
   
-  if (result != test[3]) {
+  if (JSON.stringify(result) != JSON.stringify(test[3])) {
     console.log(`Test ${i+1} Failed (Got ${result}, expect ${test[3]})`)
     failures += 1
   }

@@ -10,6 +10,12 @@ Array.prototype.magSq = function () {
   }, 0)
 }
 
+Array.prototype.add = function(b) {
+  return this.map((cur,i) => {
+    return (this[i] + b[i])
+  })
+}
+
 Object.keys(Array.prototype).forEach((method) => {
   if (method.endsWith('Sq')) {
     Array.prototype[method.slice(0, -2)] = function (b) { 
