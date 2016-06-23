@@ -4,7 +4,7 @@ eval(String(fs.readFileSync('array.vector.js')))
 
 failures = 0
 
-tests = String(fs.readFileSync('tests.tsv')).split('\n')
+tests = String(fs.readFileSync('tests.tsv')).split('\n').splice(1)
 
 tests.forEach(function (test, i) {
   test = test.split('\t').map((col,i) => {
