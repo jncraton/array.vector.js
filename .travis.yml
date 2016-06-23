@@ -1,2 +1,3 @@
+dist: trusty
 script: 
 - node test.js
