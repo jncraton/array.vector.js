@@ -16,8 +16,9 @@
 
   'zyxw'.split('').forEach((c,i) => {
     A[c] = function(v) {
-      if (v) this[this.length - 1 - i] = v
-      return this[this.length - 1 - i]
+      var j = this.length - 1 - i
+      if (v) this[j] = v
+      return this[j]
     }
   })
 
