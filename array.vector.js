@@ -7,6 +7,7 @@ Array.prototype.magSq = function () {
 }
 
 Array.prototype.add = function(b) { return this.map((cur,i) => this[i] + b[i]) }
+Array.prototype.sub = function(b) { return this.map((cur,i) => this[i] - b[i]) }
 
 Object.keys(Array.prototype).forEach((method) => {
   if (method.endsWith('Sq')) {
