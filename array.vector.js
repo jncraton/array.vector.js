@@ -1,6 +1,6 @@
 ((A,M) => {
   A.distSq = function (b) {
-    return this.reduce((p,c,i) => p + M.pow((this[i]-b[i]),2), 0)
+    return this.reduce((p,c,i,a) => p + M.pow((a[i]-b[i]),2), 0)
   }
   A.dist = function (b) { return M.sqrt(this.distSq(b)) }
 
