@@ -2,44 +2,19 @@ var fs = require('fs')
 
 eval(String(fs.readFileSync('array.vector.js')))
 
-tests = [
-  ['distSq', [0,0],          [[0,0]],      0],
-  ['distSq', [0,0],          [[0,1]],      1],
-  ['distSq', [0,0],          [[1,1]],      2],
-  ['distSq', [2,2],          [[0,0]],      8],
-  ['distSq', [-2,-2],        [[2,2]],      32],
-  ['distSq', [0,0,0],        [[0,0,1]],    1],
-  ['distSq', [0,0,0],        [[1,1,1]],    3],
-  ['distSq', [0,0,0],        [[-1,-1,-1]], 3],
-  ['dist',   [0,0],          [[0,0]],      0],
-  ['dist',   [0,0],          [[0,1]],      1],
-  ['magSq',  [0,0],          [],           0],
-  ['magSq',  [1,1],          [],           2],
-  ['magSq',  [-1,-1],        [],           2],
-  ['magSq',  [-1,-1,-1],     [],           3],
-  ['magSq',  [-1,-1,-1,-1],  [],           4],
-  ['mag',    [-1,-1,-1,-1],  [],           2],
-  ['mag',    [-1,0],         [],           1],
-  ['add',    [1,1],          [[0,0]],      [1,1]],
-  ['add',    [0,0],          [[1,1]],      [1,1]],
-  ['add',    [0,0],          [[-1,-1]],    [-1,-1]],
-  ['add',    [0,0],          [[-1,0]],     [-1,0]],
-  ['sub',    [1,1],          [[0,0]],      [1,1]],
-  ['sub',    [0,0],          [[1,1]],      [-1,-1]],
-  ['sub',    [0,0],          [[-1,-1]],    [1,1]],
-  ['sub',    [0,0],          [[-1,0]],     [1,0]],
-  ['mul',    [1,1],          [0],          [0,0]],
-  ['mul',    [1,1],          [1],          [1,1]],
-  ['mul',    [2,2],          [-2],         [-4,-4]],
-  ['mul',    [2,2],          [.5],         [1,1]],
-  ['div',    [1,1],          [1],          [1,1]],
-  ['div',    [2,2],          [-2],         [-1,-1]],
-  ['div',    [2,2],          [.5],         [4,4]],
-]
-
 failures = 0
 
+tests = String(fs.readFileSync('tests.tsv')).split('\n')
+
 tests.forEach(function (test, i) {
+  test = test.split('\t').map((col,i) => {
+    if (i > 0) {
+      return JSON.parse(col)
+    } else {
+      return col
+    }
+  })
+
   var result = test[1][test[0]].apply(test[1], test[2])
   
   if (JSON.stringify(result) != JSON.stringify(test[3])) {
