@@ -10,6 +10,7 @@ tests = [
   ['distanceSq',[-2,-2],[[2,2]],32],
   ['distanceSq',[0,0,0],[[0,0,1]],1],
   ['distanceSq',[0,0,0],[[1,1,1]],3],
+  ['distanceSq',[0,0,0],[[-1,-1,-1]],3],
 ]
 
 failures = 0
