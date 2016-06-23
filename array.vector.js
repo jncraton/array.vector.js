@@ -24,7 +24,7 @@
 
   'abs ceil floor max min round'.split(' ').forEach((f,i) => {
     A[f] = function(p) {
-      return this.map((v) => v = M[f](v,p))
+      return this.map((v) => M[f](v,p))
     }
   })
 })(Array.prototype, Math)
