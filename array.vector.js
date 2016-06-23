@@ -18,6 +18,16 @@ Array.prototype.div = function(b) { return this.map((cur,i) => this[i] / b) }
   }
 })
 
+;['abs','ceil','floor','max','min','round'].forEach((fn,i) => {
+  Array.prototype[fn] = function(param) {
+    return this.map((val) => val = Math[fn](val,param))
+  }
+})
+
+for(var fn in Math.prototype) {
+  console.log(fn)
+}
+
 Object.keys(Array.prototype).forEach((method) => {
   if (method.endsWith('Sq')) {
     Array.prototype[method.slice(0, -2)] = function (b) {
