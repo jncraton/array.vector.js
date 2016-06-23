@@ -4,7 +4,7 @@ Array.prototype.distanceSq = function (b) {
   }, 0)
 }
 
-Array.prototype.magnitudeSq = function (b) {
+Array.prototype.magnitudeSq = function () {
   return this.reduce((prev,cur) => {
     return prev + (cur*cur)
   }, 0)
