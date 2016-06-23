@@ -1,5 +1,5 @@
 Array.prototype.distSq = function (b) {
-  return this.reduce((p,c,i) => p + (this[i]-b[i])*(this[i]-b[i]), 0)
+  return this.reduce((p,c,i) => p + Math.pow((this[i]-b[i]),2), 0)
 }
 
 Array.prototype.magSq = function () {
