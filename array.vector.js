@@ -3,3 +3,9 @@ Array.prototype.distanceSq = function (b) {
     return prev + (this[i]-b[i])*(this[i]-b[i])
   }, 0)
 }
+
+Array.prototype.lengthSq = function (b) {
+  return this.reduce((prev,cur) => {
+    return prev + (cur*cur)
+  }, 0)
+}
