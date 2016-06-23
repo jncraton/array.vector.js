@@ -9,7 +9,7 @@ tests = String(fs.readFileSync('tests.tsv')).split('\n').splice(1)
 tests.forEach(function (test, i) {
   test = test.split('\t')
   
-  test[1] = JSON.parse(test[1])
+  test[1] = JSON.parse(`[${test[1]}]`)
   test[2] = JSON.parse(`[${test[2]}]`)
   test[3] = JSON.parse(test[3])
 
