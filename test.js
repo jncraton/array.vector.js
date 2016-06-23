@@ -16,7 +16,7 @@ tests.forEach(function (test, i) {
   var result = test[1][test[0]].apply(test[1], test[2])
   
   if (JSON.stringify(result) != JSON.stringify(test[3])) {
-    console.log(`Test ${i+1} Failed (Got ${result}, expect ${test[3]})`)
+    console.log(`Test ${i+1} Failed (${test[0]} got ${result}, expect ${test[3]})`)
     failures += 1
   }
 })
