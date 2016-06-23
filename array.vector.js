@@ -6,10 +6,10 @@ Array.prototype.magSq = function () {
   return this.reduce((p,c) => p + (c*c), 0)
 }
 
-Array.prototype.add = function(b) { return this.map((c,i) => this[i] + b[i]) }
-Array.prototype.sub = function(b) { return this.map((c,i) => this[i] - b[i]) }
-Array.prototype.mul = function(b) { return this.map((c,i) => this[i] * b) }
-Array.prototype.div = function(b) { return this.map((c,i) => this[i] / b) }
+Array.prototype.add = function(b) { return this.map((c,i,a) => a[i] + b[i]) }
+Array.prototype.sub = function(b) { return this.map((c,i,a) => a[i] - b[i]) }
+Array.prototype.mul = function(b) { return this.map((c,i,a) => a[i] * b) }
+Array.prototype.div = function(b) { return this.map((c,i,a) => a[i] / b) }
 
 'zyxw'.split('').forEach((c,i) => {
   Array.prototype[c] = function(v) {
