@@ -18,7 +18,7 @@ Array.prototype.div = function(b) { return this.map((c,i,a) => a[i] / b) }
   }
 })
 
-;['abs','ceil','floor','max','min','round'].forEach((f,i) => {
+'abs ceil floor max min round'.split(' ').forEach((f,i) => {
   Array.prototype[f] = function(p) {
     return this.map((v) => v = Math[f](v,p))
   }
