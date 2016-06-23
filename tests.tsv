@@ -1,4 +1,10 @@
 method	array	args	result
+x	1,2,3		1
+y	1,2,3		2
+z	1,2,3		3
+x	1,2,3	4	4
+y	1,2,3	4	4
+z	1,2,3	4	4
 distSq	0,0	[0,0]	0
 distSq	0,0	[0,1]	1
 distSq	0,0	[1,1]	2

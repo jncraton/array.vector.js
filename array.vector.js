@@ -11,6 +11,13 @@ Array.prototype.sub = function(b) { return this.map((cur,i) => this[i] - b[i]) }
 Array.prototype.mul = function(b) { return this.map((cur,i) => this[i] * b) }
 Array.prototype.div = function(b) { return this.map((cur,i) => this[i] / b) }
 
+;['x','y','z'].forEach((dim,i) => {
+  Array.prototype[dim] = function(val) {
+    if (val) this[i] = val
+    return this[i]
+  }
+})
+
 Object.keys(Array.prototype).forEach((method) => {
   if (method.endsWith('Sq')) {
     Array.prototype[method.slice(0, -2)] = function (b) {
