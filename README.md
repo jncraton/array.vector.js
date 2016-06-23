@@ -6,11 +6,11 @@ This library adds several generic vector methods to the Array prototype. These m
 
 This library doesn't play nice with other libaries since it directly modifies Array.prototype. However, this allows for very clean vector syntax:
 
-  > [1, 2].add([3,4])
-  [4,6]
-  
-  > [1.6, 2.7].round()
-  [2,3]
+    > [1, 2].add([3,4])
+    [4,6]
+    
+    > [1.6, 2.7].round()
+    [2,3]
 
 ## Supported methods
 
