@@ -11,6 +11,8 @@ tests = [
   ['distanceSq',[0,0,0],[[0,0,1]],1],
   ['distanceSq',[0,0,0],[[1,1,1]],3],
   ['distanceSq',[0,0,0],[[-1,-1,-1]],3],
+  ['distance',[0,0],[[0,0]],0],
+  ['distance',[0,0],[[0,1]],1],
   ['magnitudeSq',[0,0],[],0],
   ['magnitudeSq',[1,1],[],2],
   ['magnitudeSq',[-1,-1],[],2],

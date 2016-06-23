@@ -10,4 +10,10 @@ Array.prototype.magnitudeSq = function () {
   }, 0)
 }
 
-Array.prototype.magnitude = function () { return Math.sqrt(this.magnitudeSq()) }
+Object.keys(Array.prototype).forEach((method) => {
+  if (method.endsWith('Sq')) {
+    Array.prototype[method.slice(0, -2)] = function (b) { 
+      return Math.sqrt(this[method](b))
+    }
+  }
+})
