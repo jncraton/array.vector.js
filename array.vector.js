@@ -17,9 +17,11 @@ Array.prototype.div = function (b) { return this.map((c,i,a) => a[i] / b) }
 
 for (c of 'wxyz') ((c) => {
   Array.prototype[c] = function(v) {
-    var j = this.length + c.charCodeAt(0) - 123
+    var j = this.length - 1 + c.charCodeAt(0) - 'z'.charCodeAt(0)
     return (this[j] = v || this[j])
   }
 })(c)
 
-for(f of 'abs ceil floor max min round'.split(' ')) Array.prototype[f] = Function('b', `return this.map((c,i,a) => Math.${f}(c,b))`)
+;['abs','ceil','floor','max','min','round'].forEach(function (f) {
+  Array.prototype[f] = function (b) { return this.map((c,i,a) => Math[f](c,b)) }
+})
