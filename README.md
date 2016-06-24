@@ -12,7 +12,7 @@ This library doesn't play nice with other libaries since it directly modifies Ar
     > [1.6, 2.7].round()
     [2,3]
     
-This library is meant to be incredibly lightweight. It currently comes in at 210 bytes minified and gzipped.
+This library is meant to be incredibly lightweight. It currently comes in at 211 bytes minified and gzipped.
 
 ## Supported methods
 
@@ -26,6 +26,8 @@ This library is meant to be incredibly lightweight. It currently comes in at 210
 - `sub(vector)` - Returns a new vector that is the difference between this vector `vector`
 - `mul(scalar)` - Returns a new vector with each component multiplied by `scalar`
 - `div(scalar)` - Returns a new vector with each component divided by `scalar`
+- `dot(vector)` - Returns the dot product of this vector and `vector`
+- `cross(vector)` - Returns the cross product of this vector and `vector`
 - `mag()` - Returns the magnitude of this vector
 - `magSq()` - Returns the magnitude squared of this vector
 - `dist(vector)` - Returns the distance between this vector and `vector`
