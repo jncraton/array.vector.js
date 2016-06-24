@@ -10,9 +10,9 @@
   A.mul = F(M + 'a[i] * b')
   A.div = F(M + 'a[i] / b')
 
-  'zyxw'.split('').forEach((c,i) => {
+  'wxyz'.split('').forEach((c) => {
     A[c] = function(v) {
-      var j = this.length - 1 - i
+      var j = this.length + c.charCodeAt(0) - 123
       if (v) this[j] = v
       return this[j]
     }
