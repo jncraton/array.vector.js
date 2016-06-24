@@ -2,7 +2,7 @@ var fs = require('fs')
 
 tests = String(fs.readFileSync('tests.tsv')).split('\n').splice(1)
 
-;['array.vector.js','array.vector.min.js'].forEach(function (file) {
+;['array.vector.min.js','array.vector.js'].forEach(function (file) {
   failures = 0
 
   try {

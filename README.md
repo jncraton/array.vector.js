@@ -16,14 +16,12 @@ This library is meant to be incredibly lightweight. It currently comes in at 210
 
 ## Supported methods
 
-- `w()` - Gets fourth to last component
-- `w(value)` - Sets fourth to last component
-- `x()` - Gets third to last component
-- `x(value)` - Sets third to last component
-- `y()` - Gets second to last component
-- `y(value)` - Sets second to last component
-- `z()` - Gets last component
-- `z(value)` - Sets last compnent
+- `x()` - Gets first component
+- `x(value)` - Sets first component
+- `y()` - Gets second component
+- `y(value)` - Sets second component
+- `z()` - Gets third
+- `z(value)` - Sets third
 - `add(vector)` - Returns a new vector that is the sum of this vector and `vector`
 - `sub(vector)` - Returns a new vector that is the difference between this vector `vector`
 - `mul(scalar)` - Returns a new vector with each component multiplied by `scalar`
