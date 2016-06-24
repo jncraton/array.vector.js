@@ -1,23 +1,29 @@
-((A,F,M,R) => {
-  A.distSq = F(R + 'p + Math.pow(a[i]-b[i],2), 0')
-  A.dist = F('Math.sqrt(distSq(b)')
+(() => {
+  Array.prototype.distSq = function (b) {
+    return this.reduce((p,c,i,a) => p + Math.pow(a[i]-b[i],2), 0)
+  }
+  
+  Array.prototype.dist = function (b) { return Math.sqrt(this.distSq(b)) }
 
-  A.magSq = F(R + 'p + (c*c), 0')
-  A.mag = F('Math.sqrt(magSq()')
+  Array.prototype.magSq = function (b) {
+    return this.reduce((p,c,i,a) => p + (c*c), 0)
+  }
+  
+  Array.prototype.mag = function (b) { return Math.sqrt(this.magSq(b)) }
 
-  A.add = F(M + 'a[i] + b[i]')
-  A.sub = F(M + 'a[i] - b[i]')
-  A.mul = F(M + 'a[i] * b')
-  A.div = F(M + 'a[i] / b')
-
+  Array.prototype.add = function (b) { return this.map((c,i,a) => a[i] + b[i]) }
+  Array.prototype.sub = function (b) { return this.map((c,i,a) => a[i] - b[i]) }
+  Array.prototype.mul = function (b) { return this.map((c,i,a) => a[i] * b) }
+  Array.prototype.div = function (b) { return this.map((c,i,a) => a[i] / b) }
+  
   'wxyz'.split('').forEach((c) => {
-    A[c] = function(v) {
+    Array.prototype[c] = function(v) {
       var j = this.length + c.charCodeAt(0) - 123
       if (v) this[j] = v
       return this[j]
     }
   })
 
-  for(f of 'abs ceil floor max min round'.split(' ')) A[f] = F(M + `Math.${f}(c,b)`)
+  for(f of 'abs ceil floor max min round'.split(' ')) Array.prototype[f] = Function('b', `return this.map((c,i,a) => Math.${f}(c,b))`)
 
-})(Array.prototype, (f)=>Function('b',`with(this){return ${f})}`), 'map((c,i,a)=>', 'reduce((p,c,i,a)=>')
+})()
