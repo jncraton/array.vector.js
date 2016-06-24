@@ -11,6 +11,8 @@ This library doesn't play nice with other libaries since it directly modifies Ar
     
     > [1.6, 2.7].round()
     [2,3]
+    
+This library is meant to be incredibly lightweight. It currently comes in at 210 bytes minified and gzipped.
 
 ## Supported methods
 
