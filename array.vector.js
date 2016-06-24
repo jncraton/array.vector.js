@@ -16,13 +16,12 @@
   Array.prototype.mul = function (b) { return this.map((c,i,a) => a[i] * b) }
   Array.prototype.div = function (b) { return this.map((c,i,a) => a[i] / b) }
   
-  'wxyz'.split('').forEach((c) => {
+  for (c of 'wxyz') ((c) => {
     Array.prototype[c] = function(v) {
       var j = this.length + c.charCodeAt(0) - 123
-      if (v) this[j] = v
-      return this[j]
+      return (this[j] = v || this[j])
     }
-  })
+  })(c)
 
   for(f of 'abs ceil floor max min round'.split(' ')) Array.prototype[f] = Function('b', `return this.map((c,i,a) => Math.${f}(c,b))`)
 
