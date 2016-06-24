@@ -18,7 +18,6 @@
     }
   })
 
-  'abs ceil floor max min round'.split(' ').forEach((f,i) =>
-    A[f] = F(`map((v) => Math.${f}(v,b))`)
-  )
+  for(f of 'abs ceil floor max min round'.split(' ')) A[f] = F(`map((v) => Math.${f}(v,b))`)
+
 })(Array.prototype, (f)=>Function('b',`with(this){return ${f}}`))
