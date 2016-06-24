@@ -15,6 +15,14 @@ Array.prototype.sub = function (b) { return this.map((cur,i,a) => a[i] - b[i]) }
 Array.prototype.mul = function (b) { return this.map((cur,i,a) => a[i] * b) }
 Array.prototype.div = function (b) { return this.map((ccur,i,a) => a[i] / b) }
 
+Array.prototype.cross = function (b) {
+  return [
+    this[1]*b[2] - this[2]*b[1],
+    this[2]*b[0] - this[0]*b[2],
+    this[0]*b[1] - this[1]*b[0]
+  ]
+}
+
 Array.prototype.x = function (newVal) {
   if (newVal) this[0] = newVal
   return this[0]
