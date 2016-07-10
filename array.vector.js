@@ -41,6 +41,14 @@ Array.prototype.z = function (newVal) {
   return this[2]
 }
 
-;['abs','ceil','floor','max','min','round'].forEach(function (fn) {
-  Array.prototype[fn] = function (b) { return this.map((cur,i,a) => Math[fn](cur,b)) }
+Math.clamp = function (val, min, max) {
+  return Math.max(min, Math.min(max, val))
+}
+
+;['abs','ceil','clamp','floor','max','min','round'].forEach(function (fn) {
+  Array.prototype[fn] = function () {
+    var args = Array.from(arguments)
+    
+    return this.map((cur,i,a) => Math[fn].apply(null, [cur].concat(args)))
+  }
 })

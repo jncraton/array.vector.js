@@ -14,7 +14,7 @@ This library doesn't play nice with other libaries since it directly modifies Ar
     
 This library is meant to be incredibly lightweight. It currently comes in at 211 bytes minified and gzipped.
 
-## Supported methods
+## Supported Array vector methods
 
 - `x()` - Gets first component
 - `x(value)` - Sets first component
@@ -38,3 +38,8 @@ This library is meant to be incredibly lightweight. It currently comes in at 211
 - `max(value)` - Performs Math.max() on each component
 - `min(value)` - Performs Math.min() on each component
 - `round()` - Performs Math.round() on each component
+- `clamp(min, max)` - Clamps each component between the provided values
+
+## Additional Math helper methods
+
+- `clamp(value, min, max)` - Clamps a `value` between `min` and `max`
