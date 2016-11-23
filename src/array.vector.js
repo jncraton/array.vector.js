@@ -1,23 +1,28 @@
 Array.prototype.distSq = function (b) {
-  return this.reduce((sum,cur,i,a) => sum + (a[i]-b[i])*(a[i]-b[i]), 0)
+  return this.reduce(function(sum,cur,i,a) {
+    return sum + (a[i]-b[i])*(a[i]-b[i]) 
+  }, 0)
 }
 
-Array.prototype.dist = function (b) { return Math.sqrt(this.distSq(b)) }
+Array.prototype.dist = function (b) { 
+  return Math.sqrt(this.distSq(b))
+}
 
 Array.prototype.magSq = function (b) {
-  return this.reduce((sum,cur,i,a) => sum + (cur*cur), 0)
+  return this.reduce(function(sum,cur,i,a) {
+    return sum + (cur*cur)
+  }, 0)
 }
 
 Array.prototype.mag = function (b) { return Math.sqrt(this.magSq(b)) }
-
-Array.prototype.add = function (b) { return this.map((cir,i,a) => a[i] + b[i]) }
-Array.prototype.sub = function (b) { return this.map((cur,i,a) => a[i] - b[i]) }
-Array.prototype.mul = function (b) { return this.map((cur,i,a) => a[i] * b) }
-Array.prototype.div = function (b) { return this.map((ccur,i,a) => a[i] / b) }
+Array.prototype.add = function (b) { return this.map(function(cir,i,a) { return a[i] + b[i] }) }
+Array.prototype.sub = function (b) { return this.map(function(cur,i,a) { return a[i] - b[i] }) }
+Array.prototype.mul = function (b) { return this.map(function(cur,i,a) { return a[i] * b }) }
+Array.prototype.div = function (b) { return this.map(function(cur,i,a) { return a[i] / b }) }
 
 // Σaₐbₐ
 Array.prototype.dot = function (b) {
-  return this.reduce((sum,cur,i,a) => sum + a[i]*b[i], 0)
+  return this.reduce(function(sum,cur,i,a) { return sum + a[i]*b[i] }, 0)
 }
 
 Array.prototype.cross = function (b) {
@@ -51,6 +56,6 @@ Object.getOwnPropertyNames(Math).forEach(function (fn) {
   Array.prototype[fn] = function () {
     var args = Array.from(arguments)
     
-    return this.map((cur,i,a) => Math[fn].apply(0, [cur].concat(args)))
+    return this.map(function(cur,i,a) { return Math[fn].apply(0, [cur].concat(args)) })
   }
 })
