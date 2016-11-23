@@ -1,5 +1,5 @@
 Array.prototype.distSq = function (b) {
-  return this.reduce((sum,cur,i,a) => sum + Math.pow(a[i]-b[i],2), 0)
+  return this.reduce((sum,cur,i,a) => sum + (a[i]-b[i])*(a[i]-b[i]), 0)
 }
 
 Array.prototype.dist = function (b) { return Math.sqrt(this.distSq(b)) }
