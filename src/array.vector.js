@@ -47,7 +47,7 @@ Math.clamp = function (val, min, max) {
   return Math.max(min, Math.min(max, val))
 }
 
-;['abs','ceil','clamp','floor','max','min','round'].forEach(function (fn) {
+Object.getOwnPropertyNames(Math).forEach(function (fn) {
   Array.prototype[fn] = function () {
     var args = Array.from(arguments)
     
