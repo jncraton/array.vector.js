@@ -51,6 +51,6 @@ Object.getOwnPropertyNames(Math).forEach(function (fn) {
   Array.prototype[fn] = function () {
     var args = Array.from(arguments)
     
-    return this.map((cur,i,a) => Math[fn].apply(null, [cur].concat(args)))
+    return this.map((cur,i,a) => Math[fn].apply(0, [cur].concat(args)))
   }
 })
