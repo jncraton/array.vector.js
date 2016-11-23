@@ -28,18 +28,13 @@ Array.prototype.cross = function (b) {
   ]
 }
 
-Array.prototype.x = function (newVal) {
-  if (newVal) this[0] = newVal
-  return this[0]
-}
-Array.prototype.y = function (newVal) {
-  if (newVal) this[1] = newVal
-  return this[1]
-}
-Array.prototype.z = function (newVal) {
-  if (newVal) this[2] = newVal
-  return this[2]
-}
+;['x','y','z'].forEach(function(component) {
+  Array.prototype[component] = function (newVal) {
+    var index = component.charCodeAt(0) - 120
+    if (newVal) this[index] = newVal
+    return this[index]
+  }
+})
 
 Math.clamp = function (val, min, max) {
   return Math.max(min, Math.min(max, val))
