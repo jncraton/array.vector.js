@@ -12,7 +12,7 @@ This library doesn't play nice with other libaries since it directly modifies Ar
     > [1.6, 2.7].round()
     [2,3]
     
-This library is meant to be incredibly lightweight. It currently comes in at 211 bytes minified and gzipped.
+This library is meant to be incredibly lightweight. It currently comes in at 246 bytes minified and gzipped.
 
 ## Supported Array vector methods
 
@@ -32,6 +32,7 @@ This library is meant to be incredibly lightweight. It currently comes in at 211
 - `magSq()` - Returns the magnitude squared of this vector
 - `dist(vector)` - Returns the distance between this vector and `vector`
 - `distSq(vector)` - Returns the distance squared between this vector and `vector`
+- `norm()` - Return the normal (length 1) vector
 - `abs()` - Performs Math.abs() on each component
 - `ceil()` - Performs Math.ceil() on each component
 - `floor()` - Performs Math.floor() on each component

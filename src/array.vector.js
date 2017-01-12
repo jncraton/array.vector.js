@@ -46,6 +46,10 @@ Array.prototype.z = function(newVal) {
   return this[2]
 }
 
+Array.prototype.norm = function () {
+  return this.div(this.mag())
+}
+
 Math.clamp = function (val, min, max) {
   return Math.max(min, Math.min(max, val))
 }
