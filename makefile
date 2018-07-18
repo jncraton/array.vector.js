@@ -6,4 +6,4 @@ all:
 	@echo min `cat dist/array.vector.min.js | wc -m` bytes
 	@echo min+gz `gzip --stdout dist/array.vector.min.js | wc -m` bytes
 	@echo min+brotli `brotli --input dist/array.vector.min.js | wc -m` bytes
-	@node test/test.js
+	@nodejs test/test.js
