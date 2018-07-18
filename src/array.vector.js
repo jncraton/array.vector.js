@@ -3,7 +3,7 @@ Array.prototype.sub = function (b) { return this.map(function(cur,i,a,x) { retur
 Array.prototype.mul = function (b) { return this.map(function(cur,i,a,x) { return a[i] * b }) }
 Array.prototype.div = function (b) { return this.map(function(cur,i,a,x) { return a[i] / b }) }
 
-Array.prototype.mag = function (b) { return Math.sqrt(this.magSq(b)) }
+Array.prototype.mag = function () { return Math.sqrt(this.magSq()) }
 Array.prototype.dist = function (b) { return Math.sqrt(this.distSq(b)) }
 
 Array.prototype.distSq = function (b) {
@@ -12,7 +12,7 @@ Array.prototype.distSq = function (b) {
   }, 0)
 }
 
-Array.prototype.magSq = function (b) {
+Array.prototype.magSq = function () {
   return this.reduce(function(sum,cur,i,a) {
     return sum + (cur*cur)
   }, 0)
