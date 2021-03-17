@@ -54,7 +54,6 @@ Array.prototype.magSq = function () {
   }, 0)
 }
 
-// Σaₐbₐ
 Array.prototype.dot = function (b) {
   return this.reduce(function (sum, cur, i, a) { return sum + a[i] * b[i] }, 0)
 }
