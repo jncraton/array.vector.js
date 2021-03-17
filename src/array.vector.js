@@ -1,5 +1,10 @@
-Math.mul = function(a,b) { return a * b }
-Math.div = function(a,b) { return a / b }
+Math.mul = function(a,b) { 
+  return a * b 
+}
+
+Math.div = function(a,b) { 
+  return a / b 
+}
 
 Math.clamp = function (val, min, max) {
   return Math.max(min, Math.min(max, val))
@@ -9,15 +14,31 @@ Object.getOwnPropertyNames(Math).forEach(function (fn) {
   Array.prototype[fn] = function () {
     var args = Array.from(arguments)
     
-    return this.map(function(cur,i,a) { return Math[fn].apply(0, [cur].concat(args)) })
+    return this.map(function(cur,i,a) { 
+      return Math[fn].apply(0, [cur].concat(args)) 
+    })
   }
 })
 
-Array.prototype.add = function (b) { return this.map(function(cur,i,a,x) { return a[i] + b[i] }) }
-Array.prototype.sub = function (b) { return this.map(function(cur,i,a,x) { return a[i] - b[i] }) }
+Array.prototype.add = function (b) { 
+  return this.map(function(cur,i,a,x) { 
+    return a[i] + b[i] 
+  }) 
+}
 
-Array.prototype.mag = function () { return Math.sqrt(this.magSq()) }
-Array.prototype.dist = function (b) { return Math.sqrt(this.distSq(b)) }
+Array.prototype.sub = function (b) { 
+  return this.map(function(cur,i,a,x) { 
+    return a[i] - b[i] 
+  }) 
+}
+
+Array.prototype.mag = function () { 
+  return Math.sqrt(this.magSq()) 
+}
+
+Array.prototype.dist = function (b) { 
+  return Math.sqrt(this.distSq(b)) 
+}
 
 Array.prototype.distSq = function (b) {
   return this.reduce(function(sum,cur,i,a) {
